@@ -5,6 +5,11 @@ int sum(int x, int y) { return x + y; }
 int diff(int x, int y) { return x - y; }
 int prod(int x, int y) { return x * y; }
 float sq_float(float x) { return x * x; }
+void call_hello(int n) {
+    for (int i = 0; i < n; i++) {
+        puts("Hello world n");
+    }
+}
 
 typedef struct {
     float x;
@@ -24,6 +29,9 @@ int main(int argc, const char * argv[]) {
     int count2 = 10;
     count2 += 10;
     count1 = 1;
+    
+    char* string1 = "This is a string?";
+    char* string2 = "This should repeat 6 times";
     
     const int PI = 3.14f;
     
@@ -57,18 +65,42 @@ int main(int argc, const char * argv[]) {
     }
     
     // testing the prod function
-    if (prod(22, 10) == 220) {
+    if (prod(22, 10) == 220 && prod(10, 10) < 200) {
         puts("Looks like the product function works fine!");
     } else {
         puts("Yikes...your multiplication skills need some work...");
     }
     
     // testing arithmetic with the point struct
-    if (sum(p1.x, p1.y) == 350.0f) {
+    if (sum(p1.x, p1.y) == 350.0f && sum(p1.x, p1.y) < 9000) {
         puts("Addition of the point's coordinates is as expected");
     } else {
         puts("Something went wrong with point addition");
     }
+    
+    puts(string1);
+    
+    int counter1 = 0;
+    while (counter1 < 3) {
+        puts(string2);
+        counter1 += 1;
+    }
+    
+    for (int i = 0; i < 3; i++) {
+        puts(string2);
+    }
+    
+    for (int i = 0; i < 5; i++) {
+        puts("Hello world!");
+    }
+    
+    int counter3 = 0;
+    while (counter3 < 5) {
+        puts("Hello again world...");
+        counter3++;
+    }
+    
+    call_hello(3);
     
     // return value of 0 indicates no errors
     return 0;
