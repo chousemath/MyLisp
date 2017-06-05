@@ -1,21 +1,27 @@
 #include <stdio.h>
-
-// declare a buffer for user input of size 2048
-static char input[2048];
+// gives access to the `free` function
+#include <stdlib.h>
+#include <editline/readline.h>
 
 int main(int argc, char** argv) {
     puts("MyLisp V0.1");
     puts("Press ctrl+c to exit\n");
     
+    // in a conditional block, 1 always evaluates to true
     while (1) {
-        // output our prompt
-        fputs("MyLisp > ", stdout);
+        // readline allows us to prompt and get input in one line
+        // readline strips the new line character
+        // readline allocates new memory when it is called
+        char* input = readline("MyLisp> ");
         
-        // read in line of user input, max size 2048
-        fgets(input, 2048, stdin);
+        // add input to history
+        add_history(input);
         
         // echo input back to user
-        printf("You just wrote: %s", input);
+        printf("You just wrote: %s\n", input);
+        
+        // free retrieved input
+        free(input);
     }
     
     return 0;
