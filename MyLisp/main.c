@@ -1,16 +1,11 @@
-//
-//  main.c
-//  MyLisp
-//
-//  Created by Joseph Sungpil Choi on 6/5/17.
-//  Copyright © 2017 Joseph Sungpil Choi. All rights reserved.
-//
-
+// this is the header, allows us to use functions from stdio.h
 #include <stdio.h>
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
     printf("Hello again world!\n");
+    puts("Hey there world!");
+    puts("Konichiwa world!");
     return 0;
 }
