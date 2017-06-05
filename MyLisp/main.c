@@ -1,17 +1,21 @@
 // this is the header, allows us to use functions from stdio.h
 #include <stdio.h>
 
-int sum(int x, int y) {
-    return x + y;
-}
+int sum(int x, int y) { return x + y; }
+int diff(int x, int y) { return x - y; }
+int prod(int x, int y) { return x * y; }
+float sq_float(float x) { return x * x; }
 
-int diff(int x, int y) {
-    return x - y;
-}
+typedef struct {
+    float x;
+    float y;
+} point;
 
-int prod(int x, int y) {
-    return x * y;
-}
+typedef struct {
+    float radius;
+    float circumference;
+    float area;
+} circle;
 
 // all c programs start from the main function
 int main(int argc, const char * argv[]) {
@@ -20,6 +24,18 @@ int main(int argc, const char * argv[]) {
     int count2 = 10;
     count2 += 10;
     count1 = 1;
+    
+    const int PI = 3.14f;
+    
+    point p1;
+    p1.x = 100.0f;
+    p1.y = 250.0f;
+    
+    circle c1;
+    c1.radius = 12.0f;
+    c1.circumference = 2 * PI * c1.radius;
+    c1.area = PI * sq_float(c1.radius);
+    
     printf("Hello, World!\n");
     printf("Hello again world!\n");
     // puts is short for `put string`
@@ -45,6 +61,13 @@ int main(int argc, const char * argv[]) {
         puts("Looks like the product function works fine!");
     } else {
         puts("Yikes...your multiplication skills need some work...");
+    }
+    
+    // testing arithmetic with the point struct
+    if (sum(p1.x, p1.y) == 350.0f) {
+        puts("Addition of the point's coordinates is as expected");
+    } else {
+        puts("Something went wrong with point addition");
     }
     
     // return value of 0 indicates no errors
